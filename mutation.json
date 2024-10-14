@@ -1,0 +1,71 @@
+{
+  "current_page": 1,
+  "data": [
+    {
+      "account_number": "7062015211",
+      "date": "2022-07-11 00:00:00",
+      "description": "IBFT KREDIT BCA-SYA DI BCA",
+      "amount": "100000.00",
+      "type": "CR",
+      "note": "",
+      "balance": "0.00",
+      "created_at": "2022-07-11 13:39:14",
+      "updated_at": "2022-07-11 13:39:14",
+      "mutation_id": "wG4kYJ6zpRD",
+      "token": "wG4kYJ6zpRD",
+      "bank_id": "4D0LWdYkevQ",
+      "taggings": [],
+      "bank": {
+        "corporate_id": "YBMN",
+        "username": "MAKER",
+        "atas_nama": "Moota",
+        "balance": "0.00",
+        "account_number": "7062015211",
+        "bank_type": "bsi",
+        "pkg": "",
+        "login_retry": 0,
+        "date_from": "2022-07-11 00:00:00",
+        "date_to": "2022-07-11 00:00:00",
+        "meta": {
+          "session_id": "86c418da-d7b3-4d2b-b6aa-55cba45725a4",
+          "activity_summary": "Ditemukan 36 mutasi dalam 108.59 detik"
+        },
+        "interval_refresh": 15,
+        "next_queue": "2022-07-11 13:55:03",
+        "is_active": true,
+        "in_queue": 0,
+        "in_progress": 0,
+        "is_crawling": 1,
+        "recurred_at": "2022-07-12 13:37:36",
+        "created_at": "2022-07-11 13:37:36",
+        "token": "4D0LWdYkevQ",
+        "bank_id": "4D0LWdYkevQ",
+        "label": "BSI",
+        "last_update": "2022-07-11T06:40:03.000000Z",
+        "icon": "http://moota.test/images/icon-bank-bsi.png"
+      }
+    }
+  ],
+  "first_page_url": "http://moota.test/api/v2/mutation?page=1",
+  "from": 1,
+  "last_page": 617,
+  "last_page_url": "http://moota.test/api/v2/mutation?page=617",
+  "links": [
+    {
+      "url": null,
+      "label": "Sebelumnya",
+      "active": false
+    },
+    {
+      "url": "http://moota.test/api/v2/mutation?page=1",
+      "label": "1",
+      "active": true
+    }
+  ],
+  "next_page_url": "http://moota.test/api/v2/mutation?page=2",
+  "path": "http://moota.test/api/v2/mutation",
+  "per_page": "1",
+  "prev_page_url": null,
+  "to": 1,
+  "total": 617
+}
