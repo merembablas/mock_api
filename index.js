@@ -13,6 +13,7 @@ const reclaimClient = new ReclaimClient(
 );
 
 const app = express();
+app.use(express.json());
 const port = 7787;
 
 async function generateProof(url) {
@@ -58,9 +59,13 @@ async function generateProof(url) {
 }
 
 app.post("/generateTransferProof", async (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(403).json({ error: "No credentials sent!" });
+  }
+
   try {
     const result = await generateProof(
-      `https://mock.blocknaut.xyz/api/v2/mutation`
+      `https://mock.blocknaut.xyz/api/v2/mutation?bank=${req.body.bank}&id=${req.body.id}`
     );
 
     if (!result.success) {
@@ -80,20 +85,25 @@ app.get("/api/v2/mutation", (req, res) => {
     return res.status(401).send({ error: "No Authorization" });
   } else if (req.query.result == "notfound") {
     return res.send({ data: [] });
-  } else if (req.query.id != undefined) {
+  } else if (req.query.id != undefined && req.query.bank != undefined) {
     let item = {};
 
     function search(value, index, array) {
-      if (value.id == req.query.id) {
+      if (
+        value.id == req.query.id &&
+        value.bank == req.query.bank.toLowerCase()
+      ) {
         item = value;
       }
     }
 
     mutation_result.data.forEach(search);
-    res.send({ data: [item] });
+    return res.send({ data: [item] });
+  } else if (req.query.result == "all") {
+    return res.send(mutation_result);
+  } else {
+    return res.status(404).send({ error: "'bank' and 'id' is mandatory" });
   }
-
-  return res.send(mutation_result);
 });
 
 app.listen(port, () => {
