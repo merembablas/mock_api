@@ -42,11 +42,11 @@ async function generateProof(url) {
       };
     }
 
-    // const proofData = await Reclaim.transformForOnchain(proof);
+    const proofData = await Reclaim.transformForOnchain(proof);
 
     return {
       success: true,
-      data: proof,
+      data: proofData,
     };
   } catch (err) {
     console.log(err);
